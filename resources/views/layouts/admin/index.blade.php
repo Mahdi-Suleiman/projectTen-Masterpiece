@@ -23,7 +23,7 @@
             <div class="col-sm-6 col-xl-3">
 
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <a {{-- href="{{ route('admin.users') }}" --}} class="nav-item nav-link">
+                    <a href="{{ route('admin.users') }}" class="nav-item nav-link">
                         {{-- <i class="fa fa-chart-bar fa-3x text-primary"></i> --}}
                         <i class="fas fa-users me-2 fa-3x text-primary"></i>
                     </a>
@@ -36,7 +36,7 @@
             <div class="col-sm-6 col-xl-3">
 
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <a {{-- href="{{ route('admin.tables') }}" --}} class="nav-item nav-link">
+                    <a href="{{ route('admin.categories.index') }}" class="nav-item nav-link">
                         <i class="fa fa-table me-2 fa-3x text-primary"></i>
                     </a>
                     <div class="ms-3">
@@ -48,16 +48,16 @@
             <div class="col-sm-6 col-xl-3">
 
                 <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                    <a {{-- href="{{ route('admin.contacts') }}" --}} class="nav-item nav-link ">
+                    <a href="{{ route('admin.products.index') }}" class="nav-item nav-link ">
                         <i class="fa fa-address-book me-2 fa-3x text-primary"></i>
-                        <div class="ms-3">
                     </a>
-                    <p class="mb-2">Total Products</p>
-                    <h6 class="mb-0">{{ $allProducts }}</h6>
+                    <div class="ms-3">
+                        <p class="mb-2">Total Products</p>
+                        <h6 class="mb-0">{{ $allProducts }}</h6>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     {{-- Orders --}}

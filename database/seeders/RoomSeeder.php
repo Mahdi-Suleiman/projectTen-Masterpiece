@@ -24,7 +24,7 @@ class RoomSeeder extends Seeder
          */
         DB::table('rooms')->insert([
             [
-                'title' => 'eye examination room',
+                'name' => 'eye examination room',
                 'description' => 'A room where you can get your eyes checked',
                 'image_url' => 'room 1 image',
                 'price' => '10'

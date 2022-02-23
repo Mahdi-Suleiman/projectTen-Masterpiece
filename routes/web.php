@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\IndexController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\RoomController;
 // use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -51,4 +52,11 @@ Route::middleware(['IsAdmin'])->group(function () {
     Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin.products.edit');
     Route::put('/admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin.products.update');
     Route::delete('/admin/products/{id}', [ProductController::class, 'destroy'])->name('admin.products.destroy');
+
+    Route::get('/admin/rooms', [RoomController::class, 'index'])->name('admin.rooms.index');
+    Route::get('/admin/rooms/add', [RoomController::class, 'create'])->name('admin.rooms.create');
+    Route::post('/admin/rooms/add', [RoomController::class, 'store'])->name('admin.rooms.store');
+    Route::get('/admin/rooms/edit/{id}', [RoomController::class, 'edit'])->name('admin.rooms.edit');
+    Route::put('/admin/rooms/edit/{id}', [RoomController::class, 'update'])->name('admin.rooms.update');
+    Route::delete('/admin/rooms/{id}', [RoomController::class, 'destroy'])->name('admin.rooms.destroy');
 });

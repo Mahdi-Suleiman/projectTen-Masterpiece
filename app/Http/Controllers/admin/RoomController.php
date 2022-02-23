@@ -17,6 +17,8 @@ class RoomController extends Controller
     public function index()
     {
         //
+        $rooms = Room::all();
+        return view('layouts.admin.rooms.index', compact('rooms'));
     }
 
     /**
@@ -27,6 +29,7 @@ class RoomController extends Controller
     public function create()
     {
         //
+        return view('layouts.admin.rooms.create');
     }
 
     /**
@@ -38,6 +41,21 @@ class RoomController extends Controller
     public function store(StoreRoomRequest $request)
     {
         //
+        $request->validate([
+            'name' => 'required|unique:rooms,name',
+            'description' => 'required',
+            'image_url' => 'required',
+            'price' => 'numeric',
+        ]);
+
+        Room::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image_url' => $request->image_url,
+            'price' => $request->price,
+        ]);
+
+        return redirect()->back()->with(['message' => 'Room added successfully']);
     }
 
     /**
@@ -57,9 +75,11 @@ class RoomController extends Controller
      * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $room)
+    public function edit($id)
     {
         //
+        $room = Room::find($id);
+        return view('layouts.admin.rooms.edit', compact('room'));
     }
 
     /**
@@ -69,9 +89,24 @@ class RoomController extends Controller
      * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRoomRequest $request, Room $room)
+    public function update(UpdateRoomRequest $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required|unique:rooms,name',
+            'description' => 'required',
+            'image_url' => 'required',
+            'price' => 'numeric',
+        ]);
+        $room = Room::find($id);
+        $room->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image_url' => $request->image_url,
+            'price' => $request->price,
+
+        ]);
+        return redirect()->back()->with(['message' => 'Room updated successfully']);
     }
 
     /**
@@ -80,8 +115,11 @@ class RoomController extends Controller
      * @param  \App\Models\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $room)
+    public function destroy($id)
     {
         //
+        $room = Room::find($id);
+        $room->deleteOrFail();
+        return redirect()->back()->with(['message' => 'Room Deleted Successfully']);
     }
 }
