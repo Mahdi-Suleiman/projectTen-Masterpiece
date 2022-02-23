@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'description',
+        'image_url',
+        'price',
+    ];
 }
