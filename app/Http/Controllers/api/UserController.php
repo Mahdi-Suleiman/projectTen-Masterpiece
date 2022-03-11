@@ -27,6 +27,26 @@ class UserController extends Controller
         else
             return null;
     }
+
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|min:2',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8',
+            // 'mobile_number' => 'max:10',
+        ]);
+        $password = Hash::make($request->password);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $password,
+            // 'mobile_number' => $request->mobile_number
+        ]);
+        $returnedUser = User::where('email', $user->email)->firstOrFail();
+
+        return $returnedUser;
+    }
     public function index()
     {
         //
