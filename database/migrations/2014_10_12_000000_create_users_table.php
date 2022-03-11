@@ -23,6 +23,11 @@ return new class extends Migration
             $table->string('mobile_number')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->string('firstname')->default('')->nullable();
+            $table->string('lastname')->default('')->nullable();
+            $table->string('appointments')->default('[]');
+            $table->string('cartItems')->default('[]');
         });
     }
 
