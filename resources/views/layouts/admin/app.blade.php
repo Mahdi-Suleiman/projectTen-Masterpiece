@@ -78,7 +78,9 @@
 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
-                                class="fa fa-table me-2"></i>Products</a>
+                                class="fab fa-product-hunt me-2"></i>Products</a>
+
+
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="{{ route('admin.products.index') }}" class="nav-item nav-link">Show
                                 Products</a>
@@ -86,7 +88,7 @@
                                 Product</a>
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
+                    {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                                 class="fa fa-table me-2"></i>Rooms</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -95,7 +97,7 @@
                             <a href="{{ route('admin.rooms.create') }}" class="nav-item nav-link">Add
                                 Room</a>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </nav>
@@ -131,7 +133,7 @@
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                         document.getElementById('logout-form').submit();">
+                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 

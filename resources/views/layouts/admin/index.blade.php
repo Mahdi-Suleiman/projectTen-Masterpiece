@@ -16,7 +16,7 @@
                     </a>
                     <div class="ms-3">
                         <p class="mb-2">Total Orders</p>
-                        {{-- <h6 class="mb-0">{{ $totalCount }}</h6> --}}
+                        <h6 class="mb-0">{{ $allOrders }}</h6>
                     </div>
                 </div>
             </div>
@@ -70,64 +70,75 @@
                         <tr class="text-dark">
                             {{-- <th scope="col"><input class="form-check-input" type="checkbox"></th> --}}
                             {{-- <th></th> --}}
+                            <th scope="col">Order ID</th>
                             <th scope="col">User Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Table Number</th>
                             <th scope="col">Mobile Number</th>
-                            <th scope="col">Guest Number</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">time</th>
-                            <th scope="col">status</th>
-                            <th scope="col">Notes</th>
+                            <th scope="col">Product name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Country</th>
+                            <th scope="col">City</th>
+                            <th scope="col">Address</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($users as $user)
-                        @foreach ($user->tables as $table)
+                        {{-- @foreach ($users as $user) --}}
+                        @foreach ($orders as $order)
                             <tr>
-                                <td>{{$user->name}}</td>
+                                <td>{{ $order->id }}</td>
+                                <td>{{ $order->user->name }}</td>
                                 <td>
-                                    <a href="mailto:{{$user->email}}">{{$user->email}}</a>
+                                    <a href="mailto:{{ $order->user->email }}">{{ $order->user->email }}</a>
                                 </td>
-                                <td>{{$table->number}}</td>
-                                <td>{{$table->pivot->mobile_number}}</td>
-                                <td>{{$table->pivot->guest_number}}</td>
-                                <td>{{$table->pivot->date}}</td>
-                                <td>{{$table->pivot->time}}</td>
+                                <td>{{ $order->user->mobile_number }}</td>
+                                <td>{{ $order->product->name }}</td>
+                                <td>{{ $order->quantity }}</td>
+                                <td>{{ $order->total }}</td>
+                                <td>{{ $order->country }}</td>
+                                <td>{{ $order->city }}</td>
+                                <td>{{ $order->address }}</td>
+                                {{-- <td>{{ $table->pivot->time }}</td>
                                 <td>
-                                    <form action="{{URL::to('/admin/dashboard/' . $table->pivot->user_id . '/update/' . $table->pivot->id)}}" method="post">
+                                    <form
+                                        action="{{ URL::to('/admin/dashboard/' . $table->pivot->user_id . '/update/' . $table->pivot->id) }}"
+                                        method="post">
                                         @csrf
                                         @method('put')
                                         <select class="form-select" name="status" onchange="this.form.submit()">
-                                            <option value="{{$table->pivot->status}}">{{$table->pivot->status}}</option>
+                                            <option value="{{ $table->pivot->status }}">{{ $table->pivot->status }}
+                                            </option>
 
                                             @foreach ($allStatus as $status)
                                                 @if ($status == $table->pivot->status)
                                                     @php
-                                                        continue
+                                                        continue;
                                                     @endphp
                                                 @endif
-                                            <option value="{{$status}}">{{$status}}</option>
+                                                <option value="{{ $status }}">{{ $status }}</option>
                                             @endforeach
 
                                         </select>
 
-                                        <input type="hidden" name="user_id" value="{{$table->pivot->user_id}}">
-                                        <input type="hidden" name="table_id" value="{{$table->pivot->table_id}}">
-                                        <input type="hidden" name="mobile_number" value="{{$table->pivot->mobile_number}}">
-                                        <input type="hidden" name="guest_number" value="{{$table->pivot->guest_number}}">
-                                        <input type="hidden" name="date" value="{{$table->pivot->date}}">
-                                        <input type="hidden" name="time" value="{{$table->pivot->time}}">
-                                        <input type="hidden" name="note" value="{{$table->pivot->note}}">
+                                        <input type="hidden" name="user_id" value="{{ $table->pivot->user_id }}">
+                                        <input type="hidden" name="table_id" value="{{ $table->pivot->table_id }}">
+                                        <input type="hidden" name="mobile_number"
+                                            value="{{ $table->pivot->mobile_number }}">
+                                        <input type="hidden" name="guest_number"
+                                            value="{{ $table->pivot->guest_number }}">
+                                        <input type="hidden" name="date" value="{{ $table->pivot->date }}">
+                                        <input type="hidden" name="time" value="{{ $table->pivot->time }}">
+                                        <input type="hidden" name="note" value="{{ $table->pivot->note }}">
 
                                     </form>
                                 </td>
                                 <td>
-                                    <textarea class="form-control" id="exampleFormControlTextarea3" rows="3" readonly>{{$table->pivot->note}}</textarea>
-                                </td>
+                                    <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"
+                                        readonly>{{ $table->pivot->note }}</textarea>
+                                </td> --}}
                             </tr>
                         @endforeach
-                    @endforeach --}}
+                        {{-- @endforeach --}}
                     </tbody>
                 </table>
             </div>

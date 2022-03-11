@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,7 +22,9 @@ class IndexController extends Controller
         $allUsers = User::where('role', 'user')->count();
         $allCategories = Category::all()->count();
         $allProducts = Product::all()->count();
-        return view('layouts.admin.index', compact('allUsers', 'allCategories', 'allProducts'));
+        $allOrders = Order::all()->count();
+        $orders = Order::all();
+        return view('layouts.admin.index', compact('allUsers', 'allCategories', 'allProducts', 'allOrders', 'orders'));
     }
 
     /**
