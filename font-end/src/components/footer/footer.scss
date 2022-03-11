@@ -1,0 +1,145 @@
+footer {
+    background-image: linear-gradient(140deg, #FFFFFF00 0%, #EBEDEFDE 100%);
+    padding: 1em;
+    position: relative;
+}
+
+.footer-container {
+    color: black;
+    display: grid;
+    gap: 1em;
+    grid-template-areas: "location social aboutus";
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        width: 100px;
+    }
+}
+
+.footer-aboutus {
+    grid-area: aboutus;
+}
+
+.footer-logo {
+    width: 100px;
+}
+
+.footer-scoial {
+    grid-area: social;
+    width: 100%;
+}
+
+
+.get-in-ontact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .footerIcons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+            font-size: 1.8rem;
+            color: black;
+            padding: 1em;
+            transition: 0.4s;
+            color: #136cc4;
+        }
+
+        a {
+            &:hover {
+                i {
+                    transform: translateY(2px);
+                    transform: rotate(360deg);
+                }
+            }
+        }
+    }
+
+}
+
+.footer-contactUs {
+    grid-area: location;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-contact-info {
+    p {
+        line-height: 3;
+    }
+}
+
+.copyright {
+    text-align: center;
+    color: black;
+}
+
+.go-to-top {
+    position: absolute;
+    top: -0.8rem;
+    left: 49%;
+    background-color: #136cc4;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0.4rem 0.5rem;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 0 #136cc488;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 5px 0 #136cc4dd;
+
+    }
+
+    i {
+        font-size: 1.1rem;
+        // color: white;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .footer-container {
+        grid-template-areas:
+            "location"
+            "social"
+            "aboutus";
+        grid-template-columns: unset;
+        justify-content: unset;
+
+
+        img {
+            width: 75px;
+        }
+
+        * {
+            text-align: center;
+        }
+    }
+
+    .get-in-ontact {
+        .footerIcons {
+            flex-direction: column;
+
+            i {
+                font-size: 1.8rem;
+                padding: 0.6rem;
+                color: #136cc4;
+            }
+        }
+    }
+
+    .copyright {
+        margin-top: 1em;
+    }
+}

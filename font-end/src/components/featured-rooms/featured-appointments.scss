@@ -1,0 +1,131 @@
+.room-container-home {
+    display: grid;
+    grid-template-areas: "room-photo-container""room-desc";
+    width: 50%;
+    margin: 3rem auto;
+    background-color: #492b2c;
+    color: white;
+    border-radius: 0.5rem;
+    justify-self: center;
+    text-align: center;
+    align-items: center;
+    transition: 0.3s;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px rgba(73, 43, 44, 0.5);
+
+    &:hover {
+        box-shadow: 0px 0px 25px rgba(73, 43, 44, 0.7);
+
+        .room-photo-container {
+            img {
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+.room-photo-container {
+    grid-area: room-photo-container;
+    width: 100%;
+    height: 500px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        transition: 0.3s;
+    }
+}
+
+.room-title-home {
+    font-size: 2.3rem;
+}
+
+.room-info-home {
+    grid-area: room-desc;
+    margin: 0.5em 0;
+
+    h2 {
+        // font-size: 1.5rem;
+        font-weight: 900;
+        margin: 1rem 0;
+    }
+}
+
+.room-desc-home {
+    font-size: 1.3rem;
+    width: 50%;
+    margin: 1rem auto;
+}
+
+.view-room-button {
+    width: 50%;
+    margin: 0 auto 1em;
+    // margin-bottom: 1em;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    a {
+        text-decoration: none;
+        font-weight: bolder;
+        color: white;
+        background-color: #0084c1;
+        border: none;
+        padding: 0.55em;
+        border-radius: 0.5rem;
+        font-size: 1.5rem;
+
+        &:hover {
+            background-color: #0084c188;
+            cursor: pointer;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1100px) {
+    .room-container-home {
+        width: 80%;
+    }
+
+    .room-photo-container {
+        img {
+            width: 100%;
+            height: 200px;
+        }
+
+        width: 100%;
+        height: 200px;
+    }
+
+    // .room-container-home {
+    // 	grid-template-areas: "room-photo-container" "room-desc";
+    // }
+    .view-room-button {
+        width: 100%;
+    }
+
+    .room-desc-home {
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .room-info-home {
+
+        .button-container {
+            display: unset;
+
+            a {
+                display: inline-block;
+                width: 100% !important;
+                margin: 0;
+                transform: translateY(0.5rem);
+            }
+
+        }
+    }
+
+}

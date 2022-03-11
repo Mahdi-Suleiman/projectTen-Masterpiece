@@ -1,0 +1,25 @@
+.shop {
+
+    // width: 70% !important;
+    // margin: 0 auto;
+    &:hover {
+        transform: unset !important;
+    }
+
+    img {
+        margin-top: 1em !important;
+        width: unset !important;
+        /* height: unset; */
+        border-radius: 0.3rem 0.3rem 0 0;
+        transition: 0.3s;
+        border-radius: 0.1rem;
+
+
+    }
+
+    a {
+        width: 50% !important;
+        margin: 0.7rem auto 0.3rem !important;
+        border-radius: 0.5rem !important;
+    }
+}

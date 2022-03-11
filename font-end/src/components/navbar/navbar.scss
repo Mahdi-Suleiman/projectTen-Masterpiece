@@ -1,0 +1,142 @@
+.header {
+    position: sticky;
+    top: 0%;
+    z-index: 1000;
+    background-image: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(235, 237, 239, 0.8) 100%);
+    background-color: #415161cc;
+    box-shadow: 0 2px 5px #415161cc;
+    box-shadow: 0 2px 5px 0 rgba(65, 82, 98, 0.3), 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        transition: 0.3s ease-in-out;
+
+        a {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-size: 1.5em;
+            color: #415161;
+
+            &:hover {
+                color: #0084c1;
+            }
+        }
+
+        li {
+            transition: 0.5s;
+
+            &:hover {
+                transform: translateY(3px);
+            }
+        }
+
+        a.active {
+            color: #0084c1 !important;
+        }
+    }
+
+    .burgerMenu {
+        display: none;
+        color: black;
+        font-size: 2.7rem;
+        margin-right: 0.3rem;
+        cursor: pointer;
+    }
+
+    .shoppingCart {
+        display: flex;
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        top: 1rem;
+        right: 2.5rem;
+    }
+}
+
+.logo {
+    width: 0.625rem;
+    height: 0.625rem;
+    width: 5em;
+    height: 2em;
+}
+
+.topList {
+    display: flex;
+    list-style: none;
+}
+
+.topIcon {
+    font-size: 1.5rem;
+    margin-right: 0.625rem;
+    color: #434343;
+    cursor: pointer;
+}
+
+.shopping-icon {
+    width: 1.625em;
+    height: 1.625em;
+}
+
+.item-count {
+    position: absolute;
+    font-weight: bolder;
+    bottom: 9px;
+    font-size: 13px;
+    color: red;
+}
+
+.sign-out {
+    display: flex;
+    text-align: center;
+}
+
+@media all and (max-width: 768px) {
+    .header {
+        position: relative;
+
+        .burgerMenu {
+            display: block;
+            position: absolute;
+            top: 1.4rem;
+            right: 1.5rem;
+        }
+
+        .shoppingCart {
+            position: absolute;
+            top: 1.2rem;
+            right: 6rem;
+        }
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: stretch;
+
+        ul {
+            li {
+                margin: 0.9rem 0;
+            }
+        }
+    }
+
+    .topList {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0;
+    }
+
+    .activeBurger {
+        display: flex;
+    }
+
+    .sign-out {
+        flex-direction: column;
+    }
+}

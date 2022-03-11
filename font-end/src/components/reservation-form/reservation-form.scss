@@ -1,0 +1,50 @@
+.reservation-form-container {
+    width: 50%;
+    margin: 25px auto;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #492b2c;
+    color: white;
+    border-radius: 5px;
+
+    label {
+        font-size: 16px;
+        display: block;
+        text-align: center;
+        justify-content: center;
+    }
+
+    form {
+        input {
+            width: 70%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    }
+}
+
+.bookBtn {
+    display: block;
+    width: 100px;
+    margin: 1.1rem auto 0.1rem auto;
+    padding: 10px 2px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #0084c1;
+    font-size: 1.25rem;
+
+    &:hover {
+        background-color: #0084c188;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .reservation-form-container {
+        width: 90%;
+    }
+}
